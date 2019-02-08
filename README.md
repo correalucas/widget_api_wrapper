@@ -1,24 +1,44 @@
-# README
+# Showoff Widget API wrapper
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple showoff widget API wrapper.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+Follow these easy steps to install and start the app:
 
-* System dependencies
+### Set up Rails app
 
-* Configuration
+First, install the gems required by the application:
 
-* Database creation
+    bundle
 
-* Database initialization
+### Set up .env file
 
-* How to run the test suite
+Before running the application you will need to create a .env file in app root directory and declare the following variables:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+  CLIENT_ID
+  CLIENT_SECRET
+```
 
-* Deployment instructions
+### Test Widget API wrapper
 
-* ...
+Run the application Rspec tests:
+
+```
+  bundle exec rspec
+```
+
+### Start the app
+
+Start the Rails app:
+
+    bundle exec rails server
+
+## Documentation
+
+  How to consume Showoff API wrapper:
+
+- [Authentication methods](docs/authentication.md)
+- [User methods](docs/user.md)
+- [Widget methods](docs/widget.md)
