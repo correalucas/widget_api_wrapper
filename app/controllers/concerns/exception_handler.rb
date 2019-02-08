@@ -7,8 +7,12 @@ module ExceptionHandler
   included do
     rescue_from ExceptionHandler::MissingToken, with: :four_twenty_two
 
-    rescue_from Flexirest::HTTPClientException, Flexirest::HTTPServerException, Flexirest::TimeoutException do |e|
+    rescue_from Flexirest::HTTPClientException, Flexirest::HTTPServerException do |e|
       json_response({ message: e.result.respond_to?(:message) ? e.result.message : 'Unknown error' }, e.status)
+    end
+
+    rescue_from Flexirest::TimeoutException do
+      json_response({ message: 'Server did not respond on time.' }, 504)
     end
   end
 

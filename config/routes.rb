@@ -12,4 +12,13 @@ Rails.application.routes.draw do
   get  'my_profile',      to: 'users#my_profile'
   put  'my_profile',      to: 'users#update'
   get  'users/:id',       to: 'users#show'
+
+  # Widget routes
+  get    'widgets',           to: 'widgets#index'
+  get    'widgets/visible',   to: 'widgets#visibles'
+  get    'my_widgets',        to: 'widgets#my_widgets'
+  get    'users/:id/widgets', to: 'widgets#user_widgets'
+  post   'widgets',           to: 'widgets#create'
+  put    'widgets/:id',       to: 'widgets#update'
+  delete 'widgets/:id',       to: 'widgets#destroy'
 end
