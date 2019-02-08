@@ -2,11 +2,12 @@ module ExceptionHandler
   extend ActiveSupport::Concern
 
   class MissingToken < StandardError; end
+  class UnprocessableEntity < StandardError; end
 
   included do
     rescue_from ExceptionHandler::MissingToken, with: :four_twenty_two
 
-    rescue_from Flexirest::HTTPClientException, Flexirest::HTTPServerException do |e|
+    rescue_from Flexirest::HTTPClientException, Flexirest::HTTPServerException, Flexirest::TimeoutException do |e|
       json_response({ message: e.result.respond_to?(:message) ? e.result.message : 'Unknown error' }, e.status)
     end
   end

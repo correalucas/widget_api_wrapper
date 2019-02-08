@@ -31,7 +31,6 @@ group :development, :test do
   # Fake data to tests
   gem 'factory_bot_rails', '~> 4.0'
   gem 'faker'
-  gem 'shoulda-matchers'
 end
 
 group :development do
