@@ -46,7 +46,8 @@ class UsersController < ApplicationController
         :last_name,
         :email,
         :password,
-        :image_url
+        :image_url,
+        :date_of_birth
       ]
     )
   end
